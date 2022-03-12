@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+
+class Agol {
+private:
+    int stepeni,minuti, sekundi;
+public:
+    Agol(){
+    }
+    void set_Stepeni(int s){
+    stepeni=s;
+    }
+    void set_Minuti(int m){
+    minuti=m;
+    }
+    void set_Sekundi(int s){
+    sekundi=s;
+    }
+    int getStepeni(){
+    return stepeni;
+    }
+    int getMinuti(){
+    return minuti;
+    }
+    int getSekundi(){
+    return sekundi;
+    }
+
+    int to_sekundi(){
+    return stepeni*3600+minuti*60+sekundi;
+    }
+
+};
+int proveri(int stepeni, int minuti, int sekundi){
+    if(stepeni>0 &&  stepeni<380 && minuti>=0 && minuti<60 && sekundi>=0 && sekundi<60)
+        return 1;
+    else
+        {
+           
+            return 0;
+        }
+    }
+
+bool changeOfSeconds(Agol a, int sec){
+	return a.getSekundi()!=sec;
+}
+
+int main() {
+
+    Agol a1;//da se instancira objekt od klasata Agol
+    int deg, min, sec;
+    cin >> deg >> min >> sec;
+
+    if (proveri(deg, min, sec)) {
+
+    	a1.set_Stepeni(deg);
+        a1.set_Minuti(min);
+        a1.set_Sekundi(sec);
+        cout << a1.to_sekundi();
+        if (changeOfSeconds(a1,sec))
+       cout << "Ne smeete da gi menuvate sekundite vo ramkite na klasata!" << endl;
+    }   else
+    printf("Nevalidni vrednosti za agol");
+    return 0;
+}
