@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+struct Proizvod{
+    char ime[10];
+    float cena;
+    float kolicina;
+};
+typedef struct Proizvod Proizvod;
+
+void read(Proizvod *P){
+    scanf("%s%f%f", &P->ime,&P->cena,&P->kolicina);
+}
+
+void print(Proizvod *P, int broj){
+    printf("%d. %s\t%.2f x %.1f = %.2f\n",broj, P->ime, P->cena, P->kolicina, P->cena*P->kolicina );
+}
+
+int main()
+{
+    int n;
+    float suma=0;
+
+    scanf("%d",&n);
+    Proizvod P1[n];
+    for(int i=0;i<n;i++){
+        read(P1+i);
+        suma+=P1[i].cena*P1[i].kolicina;
+
+    }
+     for(int i=0;i<n;i++){
+        print(P1+i,i+1);
+    }
+    printf("Total: %.2f", suma);
+}
