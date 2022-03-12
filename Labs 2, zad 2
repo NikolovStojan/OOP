@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+class Krug {
+private:
+    float r;
+     float pi;
+public:
+    Krug(){ //default constructor;
+    float r=1;
+    float pi=3.14;
+    }
+    Krug(float ra,float pi1){ //constructor
+    r=ra;
+    pi=pi1;
+    }
+    float perimetar(){
+        float pe=2*pi*r;
+        return pe;
+    }
+    float plostina(){
+        return pi*r*r;
+    }
+    int ednakvi(){
+        if((2*pi*r)==(pi*r*r))
+            return 1;
+        else return 0;
+    }
+    void setR(float ra){
+    r=ra;
+    }
+    float getR(){
+    return r;
+    }
+
+};
+
+int main() {
+	float r,pi=3.14;
+	Krug k(r,pi);
+	cin >> r;//instanciraj objekt od klasata Krug cij radius e vrednosta procitana od tastatura
+    k.setR(r);
+
+	cout << k.perimetar() << endl;
+	cout << k.plostina() << endl;
+	cout << k.ednakvi() <<endl;
+	Krug k1();
+
+	return 0;
+}
